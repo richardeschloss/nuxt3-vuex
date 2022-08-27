@@ -7,10 +7,9 @@
 <script>
   export default {
     mounted() {
-      console.log('this is ', this)  
       console.log('this store (index)', this.$store.state)
-      console.log('this store (module)', this.$store.state.special)
-      this.$store.commit('UPDATE1', 5555)
+      // console.log('this store (module)', this.$store.state.special)
+      // this.$store.commit('UPDATE1', 5555)
     }
   }
 </script>
