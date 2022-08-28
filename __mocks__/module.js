@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { resolve } from 'path'
 import { nuxtCtx, useNuxt } from '@nuxt/kit'
 
@@ -10,10 +11,8 @@ export function initNuxt() {
       useNuxt().hooks[evt] = cb
     },
     version: '3.x',
-    // @ts-ignore
     options: {
       watch: [],
-      // @ts-ignore
       build: {
         templates: [],
       },

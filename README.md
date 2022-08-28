@@ -43,4 +43,5 @@ npm i -D nuxt3-vuex
 
 # NOTES
 
-You may wish to follow the discussion for [Global Store Support](https://github.com/nuxt/framework/discussions/571) in Nuxt 3.
+- You may wish to follow the discussion for [Global Store Support](https://github.com/nuxt/framework/discussions/571) in Nuxt 3.
+- This package lists Vuex4 as a dependency
