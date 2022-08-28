@@ -40,3 +40,7 @@ npm i -D nuxt3-vuex
 | --- | --- | --- |
 | `storeDir` | directory where Vuex stores are located | `<srcDir>/store` |
 | `watchStore` | enable the file watching for store directory | `true` |
+
+# NOTES
+
+You may wish to follow the discussion for [Global Store Support](https://github.com/nuxt/framework/discussions/571) in Nuxt 3.
