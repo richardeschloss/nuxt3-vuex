@@ -5,7 +5,6 @@
 </template>
 
 <script>
-  console.log('index store? in comp', indexStore)
   export default {
     mounted() {
       console.log('this store (index)', this.$store.state)

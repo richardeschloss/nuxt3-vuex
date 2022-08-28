@@ -8,9 +8,17 @@ global.__dirname = 'lib'
 describe('Module', () => {
   it('Shall do stuff.', async () => {
     nuxtCtx.set({
+      callHook(){},
+      hooks: {},
+      hook (evt, cb) {
+        useNuxt().hooks[evt] = cb
+      },
       version: '3.x',
       // @ts-ignore
       options: {
+        build: {
+          templates: [],
+        },
         plugins: [],
         runtimeConfig: {
           public: {}
@@ -20,7 +28,13 @@ describe('Module', () => {
     })
     const nuxt = useNuxt()
     await Module({}, nuxt)
-    assert(nuxt.options.runtimeConfig.public.store !== undefined)
-    assert(nuxt.options.plugins.length === 1)
+    assert(nuxt.hooks['imports:extend'] !== undefined)
+    const _imports = []
+    nuxt.hooks['imports:extend'](_imports)
+    assert(_imports.length > 0)
+    // console.log(_imports)
+
+    assert(nuxt.options.build.templates.length > 0)
+    // console.log(nuxt.options.build.templates[0].getContents())
   })
 })
