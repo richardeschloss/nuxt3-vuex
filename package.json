@@ -1,6 +1,6 @@
 {
   "name": "nuxt3-vuex",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "description": "Vuex support for Nuxt3",
   "main": "lib/module.js",
   "type": "module",
