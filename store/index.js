@@ -6,3 +6,9 @@
 export const state = () => ({
   someVal: 43211234
 })
+
+export const mutations = {
+  inc(state) {
+    state.someVal++
+  }
+}

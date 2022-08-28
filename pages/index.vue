@@ -5,11 +5,12 @@
 </template>
 
 <script>
+  console.log('index store? in comp', indexStore)
   export default {
     mounted() {
       console.log('this store (index)', this.$store.state)
       // console.log('this store (module)', this.$store.state.special)
-      // this.$store.commit('UPDATE1', 5555)
+      this.$store.commit('inc')
     }
   }
 </script>
