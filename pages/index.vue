@@ -7,9 +7,8 @@
 <script>
   export default {
     mounted() {
-      console.log('this store (index)', this.$store.state)
-      // console.log('this store (module)', this.$store.state.special)
-      this.$store.commit('inc')
+      console.log('this store is ==>', this.$store.state)
+      this.$store.commit('SET_SOMEVAL', Math.random())
     }
   }
 </script>
