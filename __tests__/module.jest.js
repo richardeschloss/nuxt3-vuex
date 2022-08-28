@@ -1,40 +1,41 @@
 import assert from 'assert'
-import { resolve } from 'path'
+import { initNuxt } from '../__mocks__/module'
 import Module from '../lib/module.js'
-import { nuxtCtx, useNuxt } from '@nuxt/kit'
 
 global.__dirname = 'lib'
 
 describe('Module', () => {
-  it('Shall do stuff.', async () => {
-    nuxtCtx.set({
-      callHook(){},
-      hooks: {},
-      hook (evt, cb) {
-        useNuxt().hooks[evt] = cb
-      },
-      version: '3.x',
-      // @ts-ignore
-      options: {
-        build: {
-          templates: [],
-        },
-        plugins: [],
-        runtimeConfig: {
-          public: {}
-        },
-        srcDir: resolve('.')
-      }
-    })
-    const nuxt = useNuxt()
+  let nuxt
+  // @ts-ignore
+  beforeEach(() => {
+    nuxt = initNuxt()
+  })
+
+  it('Shall do nothing if store folder does not exist', async () => {
+    await Module({
+      storeDir: '/tmp/notExists'
+    }, nuxt)
+    assert(nuxt.hooks['imports:extend'] === undefined)
+    assert(nuxt.options.build.templates.length === 0)
+  })
+
+  it('Shall register vuex stores if store folder exists', async () => {
     await Module({}, nuxt)
     assert(nuxt.hooks['imports:extend'] !== undefined)
     const _imports = []
     nuxt.hooks['imports:extend'](_imports)
     assert(_imports.length > 0)
-    // console.log(_imports)
-
     assert(nuxt.options.build.templates.length > 0)
-    // console.log(nuxt.options.build.templates[0].getContents())
+    const tmpl = nuxt.options.build.templates[0]
+    assert(tmpl.filename === 'vuexStore.js')
+    const contents = tmpl.getContents().split('\n')
+    assert(contents.at(-1) === 'export default VuexStore')
+
+    assert(nuxt.options.watch[0].includes('store'))
+  })
+
+  it('Shall not watch the store folder if watchStore === false', async () => {
+    await Module({ watchStore: false}, nuxt)
+    assert(nuxt.options.watch.length === 0)
   })
 })
