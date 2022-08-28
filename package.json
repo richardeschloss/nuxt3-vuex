@@ -1,9 +1,10 @@
 {
   "name": "nuxt3-vuex",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Vuex support for Nuxt3",
   "main": "lib/module.js",
   "type": "module",
+  "repository": "https://github.com/richardeschloss/nuxt3-vuex",
   "scripts": {
     "dev": "nuxi dev",
     "test": "node --experimental-vm-modules --no-warnings node_modules/jest/bin/jest.js",
