@@ -1,6 +1,6 @@
 {
   "all": false,
-  "reporter": ["html", "text"],
+  "reporter": ["html", "text", "cobertura"],
   "exclude": ["node_modules"],
   "include": ["lib"],
   "extension": [".js"]
