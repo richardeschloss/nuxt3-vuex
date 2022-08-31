@@ -1,6 +1,7 @@
 [![npm](https://img.shields.io/npm/v/nuxt3-vuex)](https://www.npmjs.com/package/nuxt3-vuex)
 [![npm](https://img.shields.io/npm/dt/nuxt3-vuex)](https://www.npmjs.com/package/nuxt3-vuex)
 [![Node.js CI](https://github.com/richardeschloss/nuxt3-vuex/actions/workflows/node.js.yml/badge.svg)](https://github.com/richardeschloss/nuxt3-vuex/actions/workflows/node.js.yml)
+[![codecov](https://img.shields.io/codecov/c/github/richardeschloss/nuxt3-vuex)](https://codecov.io/gh/richardeschloss/nuxt3-vuex)
 [![NPM](https://img.shields.io/npm/l/nuxt3-vuex)](https://github.com/richardeschloss/nuxt3-vuex/blob/development/LICENSE)
 
 [📖 **Release Notes**](https://github.com/richardeschloss/nuxt3-vuex/blob/master/CHANGELOG.md)
