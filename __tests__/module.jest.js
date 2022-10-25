@@ -1,3 +1,4 @@
+import { resolve } from 'path'
 import assert from 'assert'
 import { initNuxt } from '../__mocks__/module'
 import Module from '../lib/module.js'
@@ -37,5 +38,11 @@ describe('Module', () => {
   it('Shall not watch the store folder if watchStore === false', async () => {
     await Module({ watchStore: false}, nuxt)
     assert(nuxt.options.watch.length === 0)
+  })
+
+  it('Shall register vuex stores folder, but exclude files specified', async () => {
+    await Module({ exclude: [resolve('store/example.js')]}, nuxt)
+    const contents = nuxt.options.build.templates[0].getContents()
+    assert(!contents.includes('store/example.js'))
   })
 })

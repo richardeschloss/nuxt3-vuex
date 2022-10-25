@@ -40,6 +40,7 @@ npm i -D nuxt3-vuex
 | --- | --- | --- |
 | `storeDir` | directory where Vuex stores are located | `<srcDir>/store` |
 | `watchStore` | enable the file watching for store directory | `true` |
+| `exclude` | array of fully resolved paths in `storeDir` to exclude | `[]` |
 
 # NOTES
 
