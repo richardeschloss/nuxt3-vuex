@@ -31,13 +31,6 @@ describe('Module', () => {
     assert(tmpl.filename === 'vuexStore.js')
     const contents = tmpl.getContents().split('\n')
     assert(contents.at(-1) === 'export default VuexStore')
-
-    assert(nuxt.options.watch[0].includes('store'))
-  })
-
-  it('Shall not watch the store folder if watchStore === false', async () => {
-    await Module({ watchStore: false}, nuxt)
-    assert(nuxt.options.watch.length === 0)
   })
 
   it('Shall register vuex stores folder, but exclude files specified', async () => {
